@@ -22,31 +22,37 @@ import {
   SquaresPlusIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
+import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
  
 const navListMenuItems = [
   {
     title: "Balance General",
     description: "X description",
     icon: SquaresPlusIcon,
+    link: "/balance",
   },
   {
     title: "About Us",
     description: "X description",
     icon: UserGroupIcon,
+    link: "/about",
   },
   {
     title: "Razones Contables",
     description: "X description",
     icon: Bars4Icon,
+    link: "/ratio",
   },
 ];
  
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description }, key) => (
-      <a href="#" key={key}>
+    ({ icon, title, description, link }, key) => (
+      <Link to={link} key={key}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
             {" "}
@@ -71,7 +77,7 @@ function NavListMenu() {
             </Typography>
           </div>
         </MenuItem>
-      </a>
+      </Link>
     ),
   );
  
@@ -150,6 +156,17 @@ function NavList() {
  
 export function NavbarWithMegaMenu() {
   const [openNav, setOpenNav] = useState(false);
+  const {  logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      console.log('Attempting to logout...');
+      await logout();
+      console.log('Logout successful.');
+    } catch (error) {
+      console.log('Logout failed with error:', error.message);
+    }
+  };
  
   useEffect(() => {
     window.addEventListener(
@@ -173,11 +190,11 @@ export function NavbarWithMegaMenu() {
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
-          <Button variant="text" size="sm" color="blue-gray">
+          {/* <Button variant="text" size="sm" color="blue-gray">
             Log In
-          </Button>
-          <Button variant="gradient" size="sm">
-            Sign In
+          </Button> */}
+          <Button onClick={handleLogout} variant="gradient" size="sm">
+            Log Out
           </Button>
         </div>
         <IconButton
@@ -196,11 +213,11 @@ export function NavbarWithMegaMenu() {
       <Collapse open={openNav}>
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-          <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
+          {/* <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
             Log In
-          </Button>
-          <Button variant="gradient" size="sm" fullWidth>
-            Sign In
+          </Button> */}
+          <Button onClick={handleLogout} variant="gradient" size="sm" fullWidth>
+            Log Out
           </Button>
         </div>
       </Collapse>

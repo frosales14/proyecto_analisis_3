@@ -1,11 +1,11 @@
-import { NavbarWithMegaMenu } from "./Navbar";
 import { SimpleFooter } from "./Footer";
+import { NavbarWithMegaMenu } from "./Navbar";
 
-export const Balance = () => {
+export const About = () => {
   return (
     <>
       <NavbarWithMegaMenu />
-      <div>Balance General</div>
+        <div>About</div>
       <SimpleFooter />
     </>
   );

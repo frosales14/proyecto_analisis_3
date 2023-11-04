@@ -1,13 +1,12 @@
-import { NavbarWithMegaMenu} from "./components/Navbar"
-import { SimpleFooter } from "./components/Footer"
+import { AppRouter } from "./router/AppRouter";
+import { AuthProvider } from "./context/AuthContext";
 
 export const App = () => {
   return (
     <>
-    <NavbarWithMegaMenu />
-    <div className="h-screen bg-gray-200">Probando</div>
-    <SimpleFooter />
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
     </>
-  )
-}
-
+  );
+};
