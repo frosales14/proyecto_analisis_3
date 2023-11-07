@@ -1,120 +1,122 @@
-export const Activos = () => {
-  return (
-    <>
-      <NavbarWithMegaMenu />
-      
-      <div class="bg-gray-100 p-4">
-  <form class="bg-white p-6 rounded-lg shadow-md">
-    <div class="mb-4">
-      <label for="efectivo" class="block text-gray-600 font-semibold">Efectivo:</label>
-      <input
-        type="text"
-        id="efectivo"
-        name="efectivo"
-        class="border border-gray-300 rounded p-2 w-full"
-        placeholder="0.00"
-      />
-    </div>
+import { Typography } from "@material-tailwind/react";
 
-    <div class="mb-4">
-      <label for="cuentas" class="block text-gray-600 font-semibold">Cuentas por Cobrar:</label>
-      <input
-        type="text"
-        id="cuentas"
-        name="cuentas"
-        class="border border-gray-300 rounded p-2 w-full"
-        placeholder="0.00"
-      />
-    </div>
-    <div class="mb-4">
-      <label for="inventario" class="block text-gray-600 font-semibold">Inventario:</label>
-      <input
-        type="text"
-        id="inventario"
-        name="inventario"
-        class="border border-gray-300 rounded p-2 w-full"
-        placeholder="0.00"
-      />
-    </div>
+const TABLE_ROWS = [
+    {
+        id: 1,
+        activo: "Efectivo",
+        name: "John Michael",
+        job: "Manager",
+        date: "23/04/18",
+    },
+    {
+        id: 2,
+        activo: "Cuentas por Cobrar",
+        name: "Alexa Liras",
+        job: "Developer",
+        date: "23/04/18",
+    },
+    {
+        id: 3,
+        activo: "Inventario",
+        name: "Laurent Perrier",
+        job: "Executive",
+        date: "19/09/17",
+    },
+    {
+        id: 4,
+        activo: "Valores Negociables",
+        name: "Michael Levi",
+        job: "Developer",
+        date: "24/12/08",
+    },
+    {
+        id: 5,
+        activo: "Anticipos y Depositos",
+        name: "Richard Gran",
+        job: "Manager",
+        date: "04/10/21",
+    },
+    {
+        id: 6,
+        activo: "Activos Disponibles para Venta",
+        name: "Richard Gran",
+        job: "Manager",
+        date: "04/10/21",
+    },
+    {
+        id: 7,
+        activo: "Inventario a Corto Plazo",
+        name: "Richard Gran",
+        job: "Manager",
+        date: "04/10/21",
+    },
+    {
+        id: 8,
+        activo: "Otros Activos Corrientes",
+        name: "Richard Gran",
+        job: "Manager",
+        date: "04/10/21",
+    },
+];
 
-    <div class="mb-4">
-      <label for="negociables" class="block text-gray-600 font-semibold">Valores Negociables:</label>
-      <input
-        type="text"
-        id="negociables"
-        name="negociables"
-        class="border border-gray-300 rounded p-2 w-full"
-        placeholder="0.00"
-      />
-    </div>
+export function Activos() {
+    return (
+        <>
+            <div className="p-4 flex items-center justify-center h-full">
+                <table className="min-w-max table-auto text-left w-full rounded-lg shadow-md">
+                    <tbody>
+                        {TABLE_ROWS.map(({ activo, name, job, date, id }) => (
+                            <tr key={id} className="even:bg-blue-gray-50/50">
+                                <td className="p-4">
+                                    <Typography
+                                        variant="small"
+                                        color="blue-gray"
+                                        className="font-normal leading-none opacity-70"
+                                    >
+                                        {activo}
+                                    </Typography>
+                                </td>
+                                <td className="p-4">
+                                    <Typography variant="small" color="blue-gray" className="font-normal">
+                                        {name}
+                                    </Typography>
+                                </td>
+                                <td className="p-4">
+                                    <Typography variant="small" color="blue-gray" className="font-normal">
+                                        {job}
+                                    </Typography>
+                                </td>
+                                <td className="p-4">
+                                    <Typography variant="small" color="blue-gray" className="font-normal">
+                                        {date}
+                                    </Typography>
+                                </td>
+                                <td className="p-4">
+                                    <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                        Edit
+                                    </Typography>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <div className="flex justify-center items-center">
+                <button
+                    type="submit"
+                    className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+                >
+                    Calcular
+                </button>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="border border-gray-300 rounded p-2 m-9"
+                    placeholder="Total Activos Corrientes"
+                />
+            </div>
+        </>
+    );
+}
 
-    <div class="mb-4">
-      <label for="antidepo" class="block text-gray-600 font-semibold">Anticipos y Depositos:</label>
-      <input
-        type="text"
-        id="antidepo"
-        name="antidepo"
-        class="border border-gray-300 rounded p-2 w-full"
-        placeholder="0.00"
-      />
-    </div>
-
-    <div class="mb-4">
-      <label for="dispventa" class="block text-gray-600 font-semibold">Activos Disponibles para Venta:</label>
-      <input
-        type="text"
-        id="dispventa"
-        name="dispventa"
-        class="border border-gray-300 rounded p-2 w-full"
-        placeholder="0.00"
-      />
-    </div>
-
-    <div class="mb-4">
-      <label for="invcorto" class="block text-gray-600 font-semibold">Inventario a Corto Plazo:</label>
-      <input
-        type="text"
-        id="invcorto"
-        name="invcorto"
-        class="border border-gray-300 rounded p-2 w-full"
-        placeholder="0.00"
-      />
-    </div>
-
-    <div class="mb-4">
-      <label for="otroactivo" class="block text-gray-600 font-semibold">Otros Activos Corrientes:</label>
-      <input
-        type="text"
-        id="otroactivo"
-        name="otroactivo"
-        class="border border-gray-300 rounded p-2 w-full"
-        placeholder="0.00"
-      />
-    </div>
-
-    <div class="mb-4">
-      <button
-        type="submit"
-        class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition-colors"
-      >
-        Calcular
-      </button>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        class="border border-gray-300 rounded p-2 m-9"
-        placeholder="Total Activos Corrientes"
-      />
-
-
-    </div>
-  </form>
-</div>
-
-      <SimpleFooter />
-    </>
-
-
-  );
-};

@@ -136,7 +136,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
+        <ListItem className="items-center gap-2 py-2 pr-4">Home</ListItem>
       </Typography>
       <NavListMenu />
       <Typography

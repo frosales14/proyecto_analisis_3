@@ -1,6 +1,8 @@
 import { auth } from "../fire";
 import {  createContext, useContext ,useEffect, useState} from "react";
 import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
@@ -31,6 +33,14 @@ export const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, responseGoogle);
   };
 
+  const signup = async (email, password) => {
+    await createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const login = async (email, password) => {
+    await signInWithEmailAndPassword(auth, email, password);
+  };
+
   const logout = async () => {
     await signOut(auth);
   };
@@ -46,7 +56,7 @@ export const AuthProvider = ({ children }) => {
   
 
   return (
-    <authContext.Provider value={{ loginWithGoogle, logout, user, loading, resetPassword}}>
+    <authContext.Provider value={{ loginWithGoogle, logout, signup, login, user, loading, resetPassword}}>
       {children}
     </authContext.Provider>
   );
