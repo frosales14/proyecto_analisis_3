@@ -1,5 +1,6 @@
 import { NavbarWithMegaMenu } from "./Navbar";
 import { SimpleFooter } from "./Footer";
+import { Link } from "react-router-dom";
 
 export const Ratios = () => {
   return (
@@ -16,9 +17,11 @@ export const Ratios = () => {
             </p>
           </button>
           <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
-            <p className="font-mono text-xl font-bold text-gray-200">
-              Prueba acida
-            </p>
+          <Link to='/ratio/pruebac'>
+          <p className="font-mono text-xl font-bold text-gray-200">
+            Prueba acida
+              </p>
+          </Link>
           </button>
           <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
             <p className="font-mono text-xl font-bold text-gray-200">
@@ -26,9 +29,11 @@ export const Ratios = () => {
             </p>
           </button>
           <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
+          <Link to='/ratio/margenbruto'>
             <p className="font-mono text-xl font-bold text-gray-200">
               Margen bruto de utilidad
             </p>
+            </Link>
           </button>
           <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
             <p className="font-mono text-xl font-bold text-gray-200">
@@ -37,21 +42,25 @@ export const Ratios = () => {
           </button>
 
           <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
+          <Link to='/ratio/margenbrutoN'>
             <p className="font-mono text-xl font-bold text-gray-200">
               Margen neto de utilidad
             </p>
+            </Link>
           </button>
 
-          <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
+          <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600"> 
             <p className="font-mono text-xl font-bold text-gray-200">
               Rentabilidad del activo
             </p>
           </button>
 
           <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
-            <p className="font-mono text-xl font-bold text-gray-200">
+          <Link to='/ratio/rentabCap'>
+           <p className="font-mono text-xl font-bold text-gray-200">
               Rentabilidad del capital
             </p>
+            </Link>
           </button>
 
           <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
@@ -61,9 +70,11 @@ export const Ratios = () => {
           </button>
 
           <button className="m-1 md:w-2/5 w-4/5 rounded-lg shadow-lg p-10 bg-indigo-900 hover:bg-indigo-600">
+          <Link to='/ratio/rotacionInv'>
             <p className="font-mono text-xl font-bold text-gray-200">
               Rotacion de inventarios
             </p>
+            </Link>
           </button>
         </div>
       </div>
