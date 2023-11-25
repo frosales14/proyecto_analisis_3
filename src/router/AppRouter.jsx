@@ -6,11 +6,11 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { Balance } from "../components/Balance";
 import { ResetPassword } from "../components/ResetPassword";
 import { RegisterPage } from "../components/RegisterPage";
-import  Pruebacida  from "../components/Ratios/Pruebacida"; 
-import  MargenBruto  from "../components/Ratios/margenbrutoutilidad"; 
-import  MargenBrutoN  from "../components/Ratios/margenbrutoneto"; 
-import  RentabCap  from "../components/Ratios/rentabcapital"; 
-import  RotacInv  from "../components/Ratios/rotacioninven"; 
+import Pruebacida from "../components/Ratios/Pruebacida";
+import MargenBruto from "../components/Ratios/margenbrutoutilidad";
+import MargenBrutoN from "../components/Ratios/margenbrutoneto";
+import RentabCap from "../components/Ratios/rentabcapital";
+import RotacInv from "../components/Ratios/rotacioninven";
 
 export const AppRouter = () => {
   return (
@@ -39,31 +39,31 @@ export const AppRouter = () => {
             <MargenBruto />
           </ProtectedRoute>
         }
-        />
-        <Route
+      />
+      <Route
         path="/ratio/margenbrutoN"
         element={
           <ProtectedRoute>
             <MargenBrutoN />
           </ProtectedRoute>
         }
-        />
-        <Route
+      />
+      <Route
         path="/ratio/rentabCap"
         element={
           <ProtectedRoute>
             <RentabCap />
           </ProtectedRoute>
         }
-        />
-        <Route
+      />
+      <Route
         path="/ratio/rotacionInv"
         element={
           <ProtectedRoute>
             <RotacInv />
           </ProtectedRoute>
         }
-        />
+      />
       <Route
         path="/balance"
         element={
@@ -72,11 +72,14 @@ export const AppRouter = () => {
           </ProtectedRoute>
         }
       />
-      <Route path="/about" element={
-        <ProtectedRoute>
-          <About />
-        </ProtectedRoute>
-      } />
+      <Route
+        path="/about"
+        element={
+          <ProtectedRoute>
+            <About />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="*" element={<h1>Error 404</h1>} />
